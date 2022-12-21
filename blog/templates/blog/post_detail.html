@@ -8,7 +8,16 @@
     {% endif %}
 
     {% if user.is_authenticated %}
-    <a class="btn btn-default" href="{% url 'blog:post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+<!--    <a class="btn btn-default" href="{% url 'blog:post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>-->
+      <div class = "btn-group">
+        <a href="{% url 'blog:post_edit' pk=post.pk %}" class="btn btn-success btn-sm">Modify Post</a>
+        &nbsp;&nbsp;
+        <a href="{% url 'blog:post_list' pk=post.id %}" class="btn btn-danger btn-sm">Delete</a>
+        &nbsp;&nbsp;
+        <a href="{% url 'blog:post_new'%}" class="btn btn-info">New</a>
+        &nbsp;&nbsp;
+        <a href="{% url 'blog:post_list'%}" class="btn btn-info">Back to list</a>
+      </div>
     {% endif %}
 
     <h1>{{ post.title }}</h1>
